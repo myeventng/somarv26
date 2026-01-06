@@ -1,4 +1,5 @@
 import { Navigation } from '@/components/navigation';
+import { RSVPSection } from '@/components/sections/rsvp-section';
 
 export default function MainLayout({
   children,
@@ -9,6 +10,7 @@ export default function MainLayout({
     <>
       <Navigation />
       <main>{children}</main>
+      <RSVPSection/>
     </>
   );
 }

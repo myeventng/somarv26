@@ -1,3 +1,4 @@
+// lib/constants.ts
 export const WEDDING_DATE = new Date('2026-01-11T09:00:00');
 
 export const EVENTS = {
@@ -5,7 +6,7 @@ export const EVENTS = {
     title: 'Traditional Marriage',
     date: '9th January, 2026',
     time: '12:00 PM',
-    venue: '29, Dumex Road, Off Sapele Road, Benin City',
+    venue: '29, Dumez Road, Off Sapele Road, Benin City',
   },
   whitewedding: {
     title: 'White Wedding',
