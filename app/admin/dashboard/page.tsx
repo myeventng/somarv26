@@ -63,8 +63,8 @@ export default async function AdminDashboardPage() {
       {/* Main Content */}
       <div className="flex-1 p-4 md:p-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-            <h1 className="text-2xl md:text-3xl font-bold">Admin Dashboard</h1>
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+            <h1 className="text-2xl md:text-3xl font-bold text-center sm:text-left">Admin Dashboard</h1>
             <div className="flex flex-wrap gap-2">
               <Button asChild variant="outline" size="sm">
                 <Link href="/">View Website</Link>
