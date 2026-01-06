@@ -384,7 +384,7 @@ export function RSVPSection() {
                 >
                   <div className="relative w-64 h-20 transition-transform duration-300 group-hover:scale-105">
                     <Image
-                      src="/assets/images/engrace-logo.png"
+                      src="/assets/images/engrace-logo.PNG"
                       alt="Engraced Weddings"
                       fill
                       className="object-contain"
