@@ -1,26 +1,79 @@
+/* app/globals.css */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colors */
+  --color-primary: #6b21a8;
+  --color-primary-foreground: #faf5ff;
+  --color-secondary: #9333ea;
+  --color-accent: #c026d3;
+  --color-background: #ffffff;
+  --color-foreground: #1f2937;
+  --color-muted: #f3f4f6;
+  --color-muted-foreground: #6b7280;
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-ring: #6b21a8;
+  
+  /* Fonts */
+  --font-family-sans: var(--font-montserrat), system-ui, -apple-system, sans-serif;
+  --font-family-serif: var(--font-playfair), Georgia, serif;
+  --font-family-cormorant: var(--font-cormorant), Georgia, serif;
+  --font-family-great-vibes: var(--font-great-vibes), cursive;
+  
+  /* Border Radius */
+  --radius: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .font-great-vibes {
+    font-family: var(--font-family-great-vibes);
+  }
+
+  .font-cormorant {
+    font-family: var(--font-family-cormorant);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
 }

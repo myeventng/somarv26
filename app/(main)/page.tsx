@@ -1,17 +1,17 @@
 import { HeroSection } from '@/components/sections/hero-section';
 import { StorySection } from '@/components/sections/story-section';
 import { EventDetailsSection } from '@/components/sections/event-details-section';
+import { GalleryPreviewSection } from '@/components/sections/gallery-preview-section';
 import { RSVPSection } from '@/components/sections/rsvp-section';
-import { GalleryPreviewSection as GalleryPreview } from '@/components/sections/gallery-preview-section';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <>
       <HeroSection />
       <StorySection />
       <EventDetailsSection />
-      <GalleryPreview />
+      <GalleryPreviewSection />
       <RSVPSection />
-    </main>
+    </>
   );
 }

@@ -1,0 +1,161 @@
+somarv26-wedding/
+├── app/
+│   ├── (main)/                          # Main public pages group
+│   │   ├── layout.tsx                   # Main layout with navigation
+│   │   ├── page.tsx                     # Home page (hero + all sections)
+│   │   ├── gallery/
+│   │   │   └── page.tsx                 # Full gallery page with download
+│   │   ├── rsvp/
+│   │   │   └── page.tsx                 # RSVP form page
+│   │   └── upload/
+│   │       └── page.tsx                 # Guest upload page (QR code link)
+│   │
+│   ├── admin/                           # Admin dashboard
+│   │   ├── layout.tsx                   # Admin layout
+│   │   ├── login/
+│   │   │   └── page.tsx                 # Admin login page
+│   │   └── dashboard/
+│   │       ├── page.tsx                 # Dashboard overview
+│   │       ├── photos/
+│   │       │   └── page.tsx             # Manage uploaded photos
+│   │       └── rsvp/
+│   │           └── page.tsx             # View RSVP submissions
+│   │
+│   ├── api/                             # API routes
+│   │   ├── auth/
+│   │   │   └── [...auth]/
+│   │   │       └── route.ts             # Better-Auth endpoints
+│   │   ├── rsvp/
+│   │   │   └── route.ts                 # POST: Handle RSVP submissions
+│   │   ├── upload/
+│   │   │   └── route.ts                 # POST: Handle guest photo uploads
+│   │   └── photos/
+│   │       ├── route.ts                 # GET: Fetch photos, DELETE: Remove photo
+│   │       └── [id]/
+│   │           └── route.ts             # PATCH: Update photo caption/details
+│   │
+│   ├── layout.tsx                       # Root layout
+│   ├── globals.css                      # Global styles with Tailwind
+│   └── fonts/                           # Custom fonts
+│       ├── playfair-display/
+│       └── montserrat/
+│
+├── components/
+│   ├── sections/                        # Page sections
+│   │   ├── hero-section.tsx             # Animated hero with couple names
+│   │   ├── story-section.tsx            # Our story timeline
+│   │   ├── event-details-section.tsx    # Wedding events info
+│   │   ├── gallery-preview-section.tsx  # Gallery preview with "See More"
+│   │   ├── rsvp-section.tsx             # RSVP form
+│   │   └── footer-section.tsx           # Footer with hearts
+│   │
+│   ├── ui/                              # Shadcn components
+│   │   ├── button.tsx
+│   │   ├── input.tsx
+│   │   ├── textarea.tsx
+│   │   ├── card.tsx
+│   │   ├── dialog.tsx
+│   │   ├── table.tsx
+│   │   ├── badge.tsx
+│   │   ├── toast.tsx
+│   │   └── toaster.tsx
+│   │
+│   ├── admin/                           # Admin components
+│   │   ├── photo-manager.tsx            # Photo management table
+│   │   ├── rsvp-table.tsx               # RSVP responses table
+│   │   ├── stats-cards.tsx              # Dashboard statistics
+│   │   └── sidebar.tsx                  # Admin sidebar navigation
+│   │
+│   ├── gallery/
+│   │   ├── image-grid.tsx               # Masonry gallery grid
+│   │   ├── image-modal.tsx              # Full-size image viewer
+│   │   └── download-button.tsx          # Download image functionality
+│   │
+│   ├── upload/
+│   │   ├── upload-form.tsx              # Guest upload form
+│   │   └── upload-dropzone.tsx          # Drag & drop area
+│   │
+│   ├── animations/
+│   │   ├── scroll-reveal.tsx            # GSAP scroll animations
+│   │   ├── text-reveal.tsx              # Animated text reveals
+│   │   └── parallax-layer.tsx           # Parallax background
+│   │
+│   ├── navigation.tsx                   # Main navigation bar
+│   ├── countdown-timer.tsx              # Wedding countdown
+│   └── qr-code-generator.tsx            # Generate upload QR code
+│
+├── lib/
+│   ├── auth/
+│   │   ├── auth.ts                      # Better-Auth configuration
+│   │   ├── auth-client.ts               # Client-side auth
+│   │   └── session.ts                   # Session management
+│   │
+│   ├── db/
+│   │   ├── prisma.ts                    # Prisma client singleton
+│   │   └── schema.prisma                # Database schema
+│   │
+│   ├── email/
+│   │   ├── nodemailer.ts                # Email configuration
+│   │   └── templates/
+│   │       ├── rsvp-notification.tsx    # RSVP email template
+│   │       └── upload-notification.tsx  # Photo upload notification
+│   │
+│   ├── uploadthing/
+│   │   ├── core.ts                      # UploadThing configuration
+│   │   └── client.ts                    # Client-side uploader
+│   │
+│   ├── utils.ts                         # Utility functions (cn, formatDate, etc.)
+│   └── constants.ts                     # App constants (colors, dates, etc.)
+│
+├── hooks/
+│   ├── use-scroll-animation.ts          # Custom scroll animation hook
+│   ├── use-intersection-observer.ts     # Intersection observer hook
+│   └── use-toast.ts                     # Toast notifications hook
+│
+├── public/
+│   ├── assets/
+│   │   ├── images/                      # Wedding photos
+│   │   │   ├── couple-image.png
+│   │   │   ├── couple-image-portrait.png
+│   │   │   ├── couple-in-wedding-cloth-and-drinking-wine.png
+│   │   │   ├── couple-in-wedding-cloth-another-position.png
+│   │   │   ├── couple-in-wedding-clothes.png
+│   │   │   ├── couple-in-wedding-clothe-sitting.png
+│   │   │   ├── couple-in-wedding-gown3.png
+│   │   │   ├── couple-in-wedding-gown-looking-eye-to-eye.png
+│   │   │   ├── couple-pouring-dring.png
+│   │   │   ├── tennis-cloth.png
+│   │   │   ├── tennis-clothing2.png
+│   │   │   └── invitation_card.jpeg
+│   │   │
+│   │   └── patterns/                    # Decorative patterns/textures
+│   │       ├── floral-pattern.svg
+│   │       └── heart-pattern.svg
+│   │
+│   ├── qr-codes/
+│   │   └── upload-qr.png                # Generated QR code for uploads
+│   │
+│   └── favicon.ico
+│
+├── types/
+│   ├── index.ts                         # Global type definitions
+│   ├── rsvp.ts                          # RSVP types
+│   ├── photo.ts                         # Photo types
+│   └── auth.ts                          # Auth types
+│
+├── styles/
+│   └── animations.css                   # Custom animation keyframes
+│
+├── prisma/
+│   ├── schema.prisma                    # Database schema
+│   └── migrations/                      # Database migrations
+│
+├── .env.local                           # Environment variables
+├── .env.example                         # Example environment variables
+├── .gitignore
+├── next.config.js                       # Next.js configuration
+├── tailwind.config.ts                   # Tailwind configuration
+├── tsconfig.json                        # TypeScript configuration
+├── postcss.config.js                    # PostCSS configuration
+├── package.json
+└── README.md
