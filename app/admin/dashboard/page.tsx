@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Image as ImageIcon, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Sidebar } from '@/components/admin/sidebar';
 
 async function getDashboardStats() {
   const [totalRSVPs, attendingRSVPs, totalPhotos] = await Promise.all([
@@ -55,73 +56,73 @@ export default async function AdminDashboardPage() {
   ];
 
   return (
-    <div className="min-h-screen p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-          <div className="space-x-4">
-            <Button asChild variant="outline">
-              <Link href="/">View Website</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/admin/dashboard/rsvp">RSVPs</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/admin/dashboard/photos">Photos</Link>
-            </Button>
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Sidebar */}
+      <Sidebar />
+
+      {/* Main Content */}
+      <div className="flex-1 p-4 md:p-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+            <h1 className="text-2xl md:text-3xl font-bold">Admin Dashboard</h1>
+            <div className="flex flex-wrap gap-2">
+              <Button asChild variant="outline" size="sm">
+                <Link href="/">View Website</Link>
+              </Button>
+            </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cards.map((card) => (
-            <Link key={card.title} href={card.href}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-                <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">
-                    {card.title}
-                  </CardTitle>
-                  <card.icon className={`w-5 h-5 ${card.color}`} />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold">{card.value}</div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {cards.map((card) => (
+              <Link key={card.title} href={card.href}>
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                  <CardHeader className="flex flex-row items-center justify-between pb-2">
+                    <CardTitle className="text-sm font-medium text-gray-600">
+                      {card.title}
+                    </CardTitle>
+                    <card.icon className={`w-5 h-5 ${card.color}`} />
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-3xl font-bold">{card.value}</div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Button asChild className="w-full justify-start">
-                <Link href="/admin/dashboard/photos">Manage Photos</Link>
-              </Button>
-              <Button asChild className="w-full justify-start" variant="outline">
-                <Link href="/admin/dashboard/rsvp">View RSVPs</Link>
-              </Button>
-            </CardContent>
-          </Card>
+          <div className="mt-8 md:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Quick Actions</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Button asChild className="w-full justify-start">
+                  <Link href="/admin/dashboard/photos">Manage Photos</Link>
+                </Button>
+                <Button asChild className="w-full justify-start" variant="outline">
+                  <Link href="/admin/dashboard/rsvp">View RSVPs</Link>
+                </Button>
+              </CardContent>
+            </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">
-                {stats.totalPhotos > 0
-                  ? `${stats.totalPhotos} photo(s) in gallery`
-                  : 'No photos uploaded yet'}
-              </p>
-              <p className="text-gray-600 mt-2">
-                {stats.totalRSVPs > 0
-                  ? `${stats.totalRSVPs} guest(s) have responded to RSVP`
-                  : 'No RSVPs yet'}
-              </p>
-            </CardContent>
-          </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Recent Activity</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  {stats.totalPhotos > 0
+                    ? `${stats.totalPhotos} photo(s) in gallery`
+                    : 'No photos uploaded yet'}
+                </p>
+                <p className="text-gray-600 mt-2">
+                  {stats.totalRSVPs > 0
+                    ? `${stats.totalRSVPs} guest(s) have responded to RSVP`
+                    : 'No RSVPs yet'}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

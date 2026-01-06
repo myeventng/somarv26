@@ -14,6 +14,10 @@ async function getInitialGalleryImages(): Promise<GalleryImage[]> {
   return images;
 }
 
+// Force dynamic rendering to always show latest photos
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function GalleryPage() {
   const initialImages = await getInitialGalleryImages();
 

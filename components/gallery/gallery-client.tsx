@@ -76,18 +76,21 @@ export function GalleryClient({ initialImages, defaultImages }: GalleryClientPro
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-300"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+            {/* Caption overlay - visible on mobile, hover on desktop */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
               <p className="text-white text-sm line-clamp-2">{image.caption}</p>
               {image.guestName && (
                 <p className="text-white/80 text-xs mt-1">By: {image.guestName}</p>
               )}
             </div>
+            {/* Download button - always visible on mobile, hover on desktop */}
             <a
               href={image.url}
               download
-              className="absolute top-2 right-2 bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-2 right-2 bg-white/90 hover:bg-white p-2 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity shadow-lg"
+              onClick={(e) => e.stopPropagation()}
             >
-              <Download className="w-5 h-5 text-primary" />
+              <Download className="w-5 h-5 text-purple-600" />
             </a>
           </div>
         ))}
@@ -103,12 +106,14 @@ export function GalleryClient({ initialImages, defaultImages }: GalleryClientPro
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-300"
             />
+            {/* Download button - always visible on mobile, hover on desktop */}
             <a
               href={image}
               download
-              className="absolute bottom-2 right-2 bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-2 right-2 bg-white/90 hover:bg-white p-2 rounded-full opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity shadow-lg"
+              onClick={(e) => e.stopPropagation()}
             >
-              <Download className="w-5 h-5 text-primary" />
+              <Download className="w-5 h-5 text-purple-600" />
             </a>
           </div>
         ))}
