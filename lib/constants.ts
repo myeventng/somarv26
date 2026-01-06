@@ -5,7 +5,7 @@ export const EVENTS = {
     title: 'Traditional Marriage',
     date: '9th January, 2026',
     time: '12:00 PM',
-    venue: '1-29, Omirin Road, Off Sapele Road, Benin City',
+    venue: '29, Dumex Road, Off Sapele Road, Benin City',
   },
   whitewedding: {
     title: 'White Wedding',
@@ -15,7 +15,7 @@ export const EVENTS = {
   },
   reception: {
     title: 'Reception',
-    venue: 'Crown Heights Pavilion\n1/381, Country Home Road, Benin City',
+    venue: 'Crown Heights Pavilion.\n81/83, Country Home Road, Benin City',
     time: '12:00 PM',
   },
 };
