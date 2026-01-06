@@ -201,7 +201,7 @@ export default function AdminPhotosPage() {
                       <TableHead>Caption</TableHead>
                       <TableHead>Guest Info</TableHead>
                       <TableHead>Date Uploaded</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
+                      <TableHead className="text-right min-w-[120px]">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -241,13 +241,14 @@ export default function AdminPhotosPage() {
                             </p>
                           </div>
                         </TableCell>
-                        <TableCell>
-                          <div className="flex gap-2 justify-end">
+                        <TableCell className="min-w-[120px] whitespace-nowrap">
+                          <div className="flex gap-2 justify-end items-center">
                             <Button
                               size="icon"
                               variant="outline"
                               onClick={() => handleViewImage(image.url)}
                               title="View full image"
+                              className="h-9 w-9 flex-shrink-0"
                             >
                               <Eye className="w-4 h-4" />
                             </Button>
@@ -256,6 +257,7 @@ export default function AdminPhotosPage() {
                               variant="destructive"
                               onClick={() => handleDeleteClick(image.id)}
                               title="Delete photo"
+                              className="h-9 w-9 bg-red-600 hover:bg-red-700 text-white flex-shrink-0"
                             >
                               <Trash2 className="w-4 h-4" />
                             </Button>
@@ -300,7 +302,7 @@ export default function AdminPhotosPage() {
                         size="sm"
                         variant="destructive"
                         onClick={() => handleDeleteClick(image.id)}
-                        className="flex-1"
+                        className="flex-1 bg-red-600 hover:bg-red-700 text-white"
                       >
                         <Trash2 className="w-4 h-4 mr-2" />
                         Delete
