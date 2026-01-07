@@ -16,7 +16,7 @@ export function GalleryPreviewSection() {
     '/assets/images/couple-in-wedding-clothe-sitting.png',
     '/assets/images/couple-in-wedding-clothes.png',
     '/assets/images/tennis-cloth.png',
-    '/assets/images/tennis-clothing2.png',
+    '/assets/images/couple-on-native.png',
   ];
 
   return (
